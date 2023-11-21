@@ -20,7 +20,7 @@ getCoin();
 
 btnCoin.addEventListener("click", (e) => {
   e.preventDefault();
-  mainUl.innerHTML = ``;
+ 
   const inCoin = inputCoin.value;
   console.log(inCoin);
   const filteredCoin = coins.filter((coin) =>
@@ -35,10 +35,10 @@ btnCoin.addEventListener("click", (e) => {
       footer:
         '<a href="https://coinmarketcap.com/all/views/all/" target="_blank">Wanna see coin list?</a>',
     });
-  }
-
+  }else{
+  mainUl.innerHTML = ``;
   filteredCoin.forEach((coin) => {
-   
+    
     mainUl.innerHTML += `
         <li class="coin"><div class="remove-icon"><i class="fas fa-window-close"></i></div>
         <p class="coin-name">${coin.name}<sup>${coin.symbol}</sup></p>
@@ -49,5 +49,13 @@ btnCoin.addEventListener("click", (e) => {
         }><i class="fas fa-chart-line"></i>${coin.change}</figcaption>
         </figure>
         </li> `; 
-  });
+  })};
 });
+
+mainUl.addEventListener("click",(e)=>{{
+
+  console.log(e.target);
+  if(e.target.classList.contains("fa-window-close")){
+    e.target.parentNode.parentNode.remove()
+  }
+}})
