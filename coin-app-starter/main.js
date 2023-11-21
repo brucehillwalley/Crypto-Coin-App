@@ -23,6 +23,15 @@ e.preventDefault()
 const inCoin=inputCoin.value
 console.log(inCoin);
 const filteredCoin= coins.filter((coin)=>coin.name.toLowerCase().includes(inCoin.toLowerCase()))
+console.log(filteredCoin);
+if (filteredCoin.length==0) {
+    Swal.fire({
+        icon: "warning",
+        title: "Coin not found",
+        text: "Control your input",
+        footer: '<a href="#">Wanna see coin list?</a>'
+      });
+}
 mainUl.innerHTML=``
     filteredCoin.forEach(coin => {
         mainUl.innerHTML+=`
