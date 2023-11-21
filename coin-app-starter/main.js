@@ -6,22 +6,17 @@ const btnCoin = document.querySelector("#btnCoin");
 const mainUl = document.querySelector(".coins");
 
 let coins=[]
+
 const getCoin = async () => {
   const res = await fetch("https://api.coinranking.com/v2/coins");
   const data = await res.json();
   console.log(data);
   console.log(data.data.coins);
   coins=data.data.coins
-show(coins)
+
 }
 
 getCoin()
-
-const show=(coins)=>{
-
-
-
-}
 
 btnCoin.addEventListener("click",(e)=>{
 e.preventDefault()
