@@ -6,6 +6,7 @@ const btnCoin = document.querySelector("#btnCoin");
 const mainUl = document.querySelector(".coins");
 
 let coins = [];
+let ekranda=[]
 
 const getCoin = async () => {
   const res = await fetch("https://api.coinranking.com/v2/coins");
@@ -36,10 +37,10 @@ btnCoin.addEventListener("click", (e) => {
         '<a href="https://coinmarketcap.com/all/views/all/" target="_blank">Wanna see coin list?</a>',
     });
   }else{
-  mainUl.innerHTML = ``;
+
   filteredCoin.forEach((coin) => {
-    
-    mainUl.innerHTML += `
+    if (!ekranda.includes(coin)) {
+       mainUl.innerHTML += `
         <li class="coin"><div class="remove-icon"><i class="fas fa-window-close"></i></div>
         <p class="coin-name">${coin.name}<sup>${coin.symbol}</sup></p>
         <p class="coin-temp">${Number(coin.price).toFixed(2)}$</p>
@@ -49,6 +50,17 @@ btnCoin.addEventListener("click", (e) => {
         }><i class="fas fa-chart-line"></i>${coin.change}</figcaption>
         </figure>
         </li> `; 
+        ekranda.push(coin)
+    }else{
+      Swal.fire({
+        icon: "warning",
+        title: "Coin already exists",
+        text: "search another coin",
+        footer:
+          '<a href="https://coinmarketcap.com/all/views/all/" target="_blank">Wanna see coin list?</a>',
+      });
+    }
+   
   })};
 });
 
