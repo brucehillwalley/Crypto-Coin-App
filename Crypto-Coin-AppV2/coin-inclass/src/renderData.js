@@ -1,4 +1,5 @@
 export const renderCoins = (coin) => {
+  
   //?havada destructer da  coin yerine paremetre yerine { price, name, iconUrl, change, symbol, rank } yazarak  yapabilirsin
   const { price, name, iconUrl, change, symbol, rank } = coin;
 

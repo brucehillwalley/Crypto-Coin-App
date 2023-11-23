@@ -5,7 +5,7 @@ import setMessage from "./src/setMessage";
 
 //?Selector
 const form = document.querySelector("header form");
-
+let coinScreen=[]
 //? form için submit event'inin tanımlanması 
 form.addEventListener("submit", (e) => {
  
@@ -21,6 +21,6 @@ const getCoinData = () => {
     // alert("input can not be blank");
     setMessage("input can not be blank 😉")
   } else {
-    apiRequest(input);
+    apiRequest(input,coinScreen);
   }
 };
