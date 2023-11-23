@@ -1,5 +1,5 @@
 export const renderCoins = (coin) => {
-  //?havada destructer da yapabilirsin
+  //?havada destructer da  coin yerine paremetre yerine { price, name, iconUrl, change, symbol, rank } yazarak  yapabilirsin
   const { price, name, iconUrl, change, symbol, rank } = coin;
 
   const coinsUl = document.querySelector("main .coins");
@@ -13,14 +13,14 @@ export const renderCoins = (coin) => {
     <i class="fas fa-window-close"></i>
 
     </div>
-   <h2>
+   <h2 class="coin-name">
    <span>${name}</span>
    <sup>${symbol}</sup>
    </h2>
 
-   <div class="coin-temp">${Number(price).toFixed(2)}</div>
+   <div class="coin-temp">$${Number(price).toFixed(2)}</div>
    <figure>
-        <img src="${iconUrl}" /}
+        <img src="${iconUrl}" />
         <figcaption style="color:${change < 0 ? "red" : "green"}">
         <i class="fa-solid fa-chart-line"></i>
         <span>${change || "0"}%</span>
@@ -29,7 +29,7 @@ export const renderCoins = (coin) => {
         <div>RANK:${rank}</div>
         </figure>
 
-`
+`  //? oluşan li elementini ul listesine bagladik
   coinsUl.append(newCoinLi);
 
   //? sil butonu için event tanımmlanması
